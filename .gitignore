@@ -1,0 +1,20 @@
+# local .terraform dir
+.terraform/*
+
+# tf state files
+*.tfstate
+*.tfstate.*
+
+# tf variable files, may include sensitive data
+*.tfvars
+
+# local .history dir
+.history/*
+
+# providers file
+providers.tf
+
+# ignore log files
+crash.log
+
+

@@ -1,0 +1,11 @@
+variable vpc_cidr_block {}
+variable  subnet_main_public_1_cidr_block {} 
+variable  subnet_main_public_2_cidr_block {} 
+variable  subnet_main_public_3_cidr_block {} 
+variable  subnet_main_private_1_cidr_block {}
+variable  subnet_main_private_2_cidr_block {} 
+variable  subnet_main_private_3_cidr_block {} 
+variable avail_zone1 {}
+variable avail_zone2 {}
+variable avail_zone3 {}
+variable env_prefix {}
