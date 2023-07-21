@@ -8,4 +8,8 @@ variable  subnet_main_private_3_cidr_block {}
 variable avail_zone1 {}
 variable avail_zone2 {}
 variable avail_zone3 {}
+variable my_ip {}
 variable env_prefix {}
+variable image_name {}
+variable public_key_location {}
+variable instance_type1 {}

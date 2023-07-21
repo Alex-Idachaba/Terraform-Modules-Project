@@ -16,3 +16,15 @@ module "network-module" {
   avail_zone3 = var.avail_zone3
   env_prefix = var.env_prefix
 }
+
+module "compute-module" {
+ source = "./modules/compute"
+ vpc_id = module.network-module.vpc-main.id
+ my_ip = var.my_ip
+ env_prefix = var.env_prefix
+ image_name = var.image_name
+ public_key_location = var.public_key_location
+ subnet_id = module.network-module.subnet-public-1.id
+ avail_zone1 = var.avail_zone1
+ instance_type1 = var.instance_type1
+}
