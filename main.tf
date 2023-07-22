@@ -27,4 +27,10 @@ module "compute-module" {
  subnet_id = module.network-module.subnet-public-1.id
  avail_zone1 = var.avail_zone1
  instance_type1 = var.instance_type1
+ iam_instance_profile = module.iam-module.iam_instance_profile.name
+}
+
+module "iam-module" {
+  source = "./modules/iam"
+  env_prefix = var.env_prefix
 }

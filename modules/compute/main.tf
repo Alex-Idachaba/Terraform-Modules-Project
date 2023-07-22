@@ -70,6 +70,8 @@ resource "aws_instance" "myapp-server" {
   tags = {
     Name: "${var.env_prefix}-myapp-server"
   }
+  # role:
+  iam_instance_profile = var.iam_instance_profile
 }
 
 resource "aws_ebs_volume" "ebs-volume-1" {
