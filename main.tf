@@ -34,3 +34,15 @@ module "iam-module" {
   source = "./modules/iam"
   env_prefix = var.env_prefix
 }
+
+module "autoscaling-loadbalancer" {
+  source = "./modules/autoscaling_loadbalancer"
+  instance_type1 = var.instance_type1
+  public_key_location = var.public_key_location
+  subnet_main_public_1 = module.network-module.subnet-public-1
+  subnet_main_public_2 = module.network-module.subnet-public-2
+  vpc_id = module.network-module.vpc-main.id
+  my_ip = var.my_ip
+  env_prefix = var.env_prefix
+  key_pair = module.compute-module.key_pair
+}
