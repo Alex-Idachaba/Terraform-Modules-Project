@@ -13,3 +13,5 @@ variable env_prefix {}
 variable image_name {}
 variable public_key_location {}
 variable instance_type1 {}
+variable RDS_USERNAME {}
+variable RDS_PASSWORD {}

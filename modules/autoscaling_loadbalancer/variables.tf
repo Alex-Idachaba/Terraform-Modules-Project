@@ -5,7 +5,5 @@ variable subnet_main_public_2 {}
 variable vpc_id {}
 variable my_ip {}
 variable env_prefix {}
-variable key_pair {
-  
-}
+variable key_pair {}
 

@@ -46,3 +46,27 @@ module "autoscaling-loadbalancer" {
   env_prefix = var.env_prefix
   key_pair = module.compute-module.key_pair
 }
+
+module "db-module" {
+  source = "./modules/dbase"
+  vpc_id = module.network-module.vpc-main
+  subnet_main_private_1 = module.network-module.subnet-private-1
+  subnet_main_private_2 = module.network-module.subnet-private-2
+  RDS_USERNAME = var.RDS_USERNAME
+  RDS_PASSWORD = var.RDS_PASSWORD
+  env_prefix = var.env_prefix
+  main_security_group = module.compute-module.main_security_group
+}
+
+module "app-beanstalk-module" {
+  source = "./modules/app_elastic_beanstalk"
+  vpc_id = module.network-module.vpc-main
+  subnet_main_private_1 = module.network-module.subnet-private-1
+  subnet_main_private_2 = module.network-module.subnet-private-2
+  subnet_main_public_1 = module.network-module.subnet-public-1
+  subnet_main_public_2 = module.network-module.subnet-public-2
+  aws_db_instance = module.db-module.db-instance
+  key_pair = module.compute-module.key_pair
+  instance_type1 = var.instance_type1
+  env_prefix = var.env_prefix
+}
